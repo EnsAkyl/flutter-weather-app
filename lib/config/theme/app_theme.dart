@@ -12,6 +12,7 @@ class AppTheme{
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurfacesVariantDialog,
     blendLevel: 40,
     appBarOpacity: 0.95,
+    appBarStyle: FlexAppBarStyle.primary,
     appBarElevation: 0,
     transparentStatusBar: true,
     tabBarStyle: FlexTabBarStyle.forBackground,
