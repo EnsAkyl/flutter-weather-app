@@ -11,7 +11,7 @@ class AppTheme{
     scheme: FlexScheme.sakura,
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurfacesVariantDialog,
     blendLevel: 40,
-    appBarOpacity: 0.95,
+    appBarOpacity: 1,
     appBarStyle: FlexAppBarStyle.primary,
     appBarElevation: 0,
     transparentStatusBar: true,
