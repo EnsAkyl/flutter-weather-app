@@ -21,6 +21,16 @@ class HomeScreen extends ConsumerWidget {
         ),
         centerTitle: true,
       ),
+      body: SafeArea(
+        child: Expanded(
+          child: GridView.builder(
+            physics: AlwaysScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
+            itemCount: 15,
+            itemBuilder: (context,index){return Card(child: Center(child: Text("MErhaba")));},
+          ),
+        ),
+      ),
     );
   }
 }
