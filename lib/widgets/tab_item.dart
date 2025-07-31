@@ -28,3 +28,13 @@ class TabItem extends StatelessWidget {
     );
   }
 }
+//Tab-Bar buton bilgileri
+class TabItemList{
+  static final List<TabItem> tabList = [
+    TabItem(title: "Gridview"),
+    TabItem(title: "Gridview Builder"),
+    TabItem(title: "ListTile"),
+    TabItem(title: "Listview"),
+    TabItem(title: "ListTile Builder"),
+  ];
+}

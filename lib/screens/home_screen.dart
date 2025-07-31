@@ -43,15 +43,9 @@ class HomeScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
 
-                //labelColor: Colors.white,
+                //labelColor: Colors.white,  ---- tab_item.dart dosyasındaki text style'da context kullandığım için bütün tabbar'da baskın oldu.
                 //unselectedLabelColor: Colors.black,
-                tabs: [
-                  TabItem(title: "Gridview"),
-                  TabItem(title: "Gridview Builder"),
-                  TabItem(title: "ListTile"),
-                  TabItem(title: "Listview"),
-                  TabItem(title: "ListTile Builder"),
-                ],
+                tabs: TabItemList.tabList
               ),
             ),
           ),
