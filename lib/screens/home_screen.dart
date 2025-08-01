@@ -15,7 +15,7 @@ class HomeScreen extends ConsumerWidget {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
     return DefaultTabController(
-      length: 5,
+      length: 11,
       child: Scaffold(
         appBar: AppBar(
           title: DisplayColorText(
@@ -36,16 +36,19 @@ class HomeScreen extends ConsumerWidget {
                 color: context.colorScheme.primaryContainer,
               ),
               child: TabBar(
+                tabAlignment: TabAlignment.center,
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
+                isScrollable: true,
                 indicator: BoxDecoration(
                   color: colors.secondary,
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
 
+
                 //labelColor: Colors.white,  ---- tab_item.dart dosyasındaki text style'da context kullandığım için bütün tabbar'da baskın oldu.
                 //unselectedLabelColor: Colors.black,
-                tabs: TabItemList.tabList
+                tabs: TabItemList.tabList,
               ),
             ),
           ),
@@ -56,6 +59,12 @@ class HomeScreen extends ConsumerWidget {
             Center(child: const Text("Sayfa deneme2.")),
             Center(child: const Text("Sayfa deneme3.")),
             Center(child: const Text("Sayfa deneme4.")),
+            Center(child: const Text("Sayfa deneme5.")),
+            Center(child: const Text("Sayfa deneme2.")),
+            Center(child: const Text("Sayfa deneme2.")),
+            Center(child: const Text("Sayfa deneme3.")),
+            Center(child: const Text("Sayfa deneme4.")),
+            Center(child: const Text("Sayfa deneme5.")),
             Center(child: const Text("Sayfa deneme5.")),
           ],
         ),

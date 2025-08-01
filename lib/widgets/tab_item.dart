@@ -12,15 +12,13 @@ class TabItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Flexible(
-            child: Text(
-              textAlign: TextAlign.center,
-              title,
-              style: context.textTheme.labelMedium?.copyWith(
-                fontSize: 10.8,
-                fontWeight: FontWeight.bold,
-                color: context.colorScheme.surface,
-              ),
+          Text(
+            textAlign: TextAlign.center,
+            title,
+            style: context.textTheme.labelMedium?.copyWith(
+              fontSize: 10.8,
+              fontWeight: FontWeight.bold,
+              color: context.colorScheme.surface,
             ),
           ),
         ],
@@ -28,13 +26,20 @@ class TabItem extends StatelessWidget {
     );
   }
 }
+
 //Tab-Bar buton bilgileri
-class TabItemList{
+class TabItemList {
   static final List<TabItem> tabList = [
-    TabItem(title: "Gridview"),
-    TabItem(title: "Gridview Builder"),
-    TabItem(title: "ListTile"),
-    TabItem(title: "Listview"),
-    TabItem(title: "ListTile Builder"),
+    TabItem(title: "Ankara"),
+    TabItem(title: "İstanbul"),
+    TabItem(title: "İzmir"),
+    TabItem(title: "Mersin"),
+    TabItem(title: "Trabzon"),
+    TabItem(title: "Gaziantep"),
+    TabItem(title: "Kırıkkale"),
+    TabItem(title: "Samsun"),
+    TabItem(title: "Bursa"),
+    TabItem(title: "Erzurum"),
+    TabItem(title: "Muğla"),
   ];
 }
