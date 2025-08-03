@@ -1,2 +1,2 @@
 export 'display_color_text.dart';
-export 'tab_item.dart';
+export '../data/tab_item.dart';

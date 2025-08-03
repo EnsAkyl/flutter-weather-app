@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/data/card_header_data.dart';
+import 'package:weather_app/data/data.dart';
+import 'package:weather_app/providers/providers.dart';
 import 'package:weather_app/utils/utils.dart';
 import 'package:weather_app/widgets/widgets.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends ConsumerWidget {
     final textTheme = context.textTheme;
     final headerList = CardHeaderData.headerList;
     return DefaultTabController(
-      length: 11,
+      length: TabItemList.tabList.length,
       child: Scaffold(
         appBar: AppBar(
           title: DisplayColorText(
@@ -41,6 +42,13 @@ class HomeScreen extends ConsumerWidget {
                 color: context.colorScheme.primaryContainer,
               ),
               child: TabBar(
+                onTap: (index) {
+                  ref.read(SelectedCardProvider.notifier).state = null;
+                  ref.read(SelectedTabbarProvider.notifier).state = index;
+                  debugPrint(
+                    "Seçilen TabBar Item : ${TabItemList.tabList[index].title}",
+                  );
+                },
                 tabAlignment: TabAlignment.center,
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
@@ -54,61 +62,96 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
         ),
+
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: GridView.builder(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.all(1),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 5,
+                  crossAxisSpacing: 0.3,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 2,
+                  childAspectRatio: 3 / 1.2,
                 ),
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      debugPrint("Tıklanan Kart : ${headerList[index].title}");
-                    },
-                    child: Card(
-                      color: colors.primary,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              height: 70,
-                              width: 70,
-                              headerList[index].iconPath,
+                  return Consumer(
+                    builder: (context, ref, child) {
+                      final selectedCardIndex = ref.watch(SelectedCardProvider);
+                      final isSelected = selectedCardIndex == index;
+                      return GestureDetector(
+                        onTap: () {
+                          ref.read(SelectedCardProvider.notifier).state = index;
+                        },
+                        child: Card(
+                          color: isSelected ? colors.primaryContainer : colors.primary,
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: SvgPicture.asset(
+                                    height: 70,
+                                    width: 70,
+                                    headerList[index].iconPath,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: DisplayColorText(
+                                    text: headerList[index].title,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
-                            DisplayColorText(
-                              text: headerList[index].title,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   );
                 },
                 itemCount: headerList.length,
               ),
             ),
             Expanded(
-              child: const TabBarView(
+              child: TabBarView(
                 children: [
-                  Center(child: Text("Sayfa deneme2.")),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title } ve Seçilen Card: ${ref.watch(SelectedCardProvider)}",
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
+                    ),
+                  ),
                   Center(child: Text("Sayfa deneme2.")),
                   Center(child: Text("Sayfa deneme3.")),
                   Center(child: Text("Sayfa deneme4.")),
-                  Center(child: Text("Sayfa deneme5.")),
-                  Center(child: Text("Sayfa deneme2.")),
-                  Center(child: Text("Sayfa deneme2.")),
-                  Center(child: Text("Sayfa deneme3.")),
-                  Center(child: Text("Sayfa deneme4.")),
-                  Center(child: Text("Sayfa deneme5.")),
                   Center(child: Text("Sayfa deneme5.")),
                 ],
               ),

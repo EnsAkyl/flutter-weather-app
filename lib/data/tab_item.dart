@@ -36,7 +36,6 @@ class TabItemList {
     TabItem(title: "Mersin"),
     TabItem(title: "Trabzon"),
     TabItem(title: "Gaziantep"),
-    TabItem(title: "Kırıkkale"),
     TabItem(title: "Samsun"),
     TabItem(title: "Bursa"),
     TabItem(title: "Erzurum"),
