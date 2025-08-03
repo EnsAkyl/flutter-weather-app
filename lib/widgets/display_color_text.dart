@@ -8,12 +8,14 @@ class DisplayColorText extends StatelessWidget {
     this.textColor,
     this.fontSize,
     this.fontWeight,
+    this.textAlign,
   });
 
   final String text;
   final Color? textColor;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class DisplayColorText extends StatelessWidget {
 
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: textTheme.titleLarge?.copyWith(
         color: textColor ?? color.surface,
         fontWeight: fontWeight ?? FontWeight.normal,

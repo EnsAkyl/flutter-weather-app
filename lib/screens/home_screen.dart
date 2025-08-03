@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:weather_app/data/city_information.dart';
 import 'package:weather_app/data/data.dart';
 import 'package:weather_app/providers/providers.dart';
 import 'package:weather_app/utils/utils.dart';
@@ -85,7 +87,10 @@ class HomeScreen extends ConsumerWidget {
                           ref.read(SelectedCardProvider.notifier).state = index;
                         },
                         child: Card(
-                          color: isSelected ? colors.primaryContainer : colors.primary,
+                          color:
+                              isSelected
+                                  ? colors.primaryContainer
+                                  : colors.primary,
                           child: Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -103,6 +108,7 @@ class HomeScreen extends ConsumerWidget {
                                     text: headerList[index].title,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                               ],
@@ -119,40 +125,14 @@ class HomeScreen extends ConsumerWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title } ve Seçilen Card: ${ref.watch(SelectedCardProvider)}",
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Seçilen TabBar Değeri : ${TabItemList.tabList[ref.watch(SelectedTabbarProvider)].title}",
-                    ),
-                  ),
-                  Center(child: Text("Sayfa deneme2.")),
-                  Center(child: Text("Sayfa deneme3.")),
-                  Center(child: Text("Sayfa deneme4.")),
-                  Center(child: Text("Sayfa deneme5.")),
+                  CityInformation(cityName: "Ankara"),
+                  CityInformation(cityName: "İstanbul"),
+                  CityInformation(cityName: "Mersin"),
+                  CityInformation(cityName: "Trabzon"),
+                  CityInformation(cityName: "Gaziantep"),
+                  CityInformation(cityName: "Bursa"),
+                  CityInformation(cityName: "Erzurum"),
+                  CityInformation(cityName: "Muğla"),
                 ],
               ),
             ),

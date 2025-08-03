@@ -32,11 +32,9 @@ class TabItemList {
   static final List<TabItem> tabList = [
     TabItem(title: "Ankara"),
     TabItem(title: "İstanbul"),
-    TabItem(title: "İzmir"),
     TabItem(title: "Mersin"),
     TabItem(title: "Trabzon"),
     TabItem(title: "Gaziantep"),
-    TabItem(title: "Samsun"),
     TabItem(title: "Bursa"),
     TabItem(title: "Erzurum"),
     TabItem(title: "Muğla"),
