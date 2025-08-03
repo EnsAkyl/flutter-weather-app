@@ -22,6 +22,7 @@ class DisplayColorText extends StatelessWidget {
 
     return Text(
       text,
+      textAlign: TextAlign.center,
       style: textTheme.titleLarge?.copyWith(
         color: textColor ?? color.surface,
         fontWeight: fontWeight ?? FontWeight.normal,
