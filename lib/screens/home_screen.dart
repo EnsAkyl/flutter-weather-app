@@ -69,13 +69,14 @@ class HomeScreen extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
+              flex: 1,
               child: GridView.builder(
                 padding: EdgeInsets.all(1),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                  crossAxisCount: 3,
                   crossAxisSpacing: 0.3,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 1.2,
+                  childAspectRatio: 5 / 3,
                 ),
                 itemBuilder: (context, index) {
                   return Consumer(
@@ -92,26 +93,30 @@ class HomeScreen extends ConsumerWidget {
                                   ? colors.primaryContainer
                                   : colors.primary,
                           child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: SvgPicture.asset(
-                                    height: 70,
-                                    width: 70,
-                                    headerList[index].iconPath,
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+
+                                children: [
+                                  Expanded(
+                                    child: SvgPicture.asset(
+                                      height: 50,
+                                      width: 50,
+                                      headerList[index].iconPath,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: DisplayColorText(
-                                    text: headerList[index].title,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
+                                  Expanded(
+                                    child: DisplayColorText(
+                                      text: headerList[index].title,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -123,6 +128,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             Expanded(
+              flex: 7,
               child: TabBarView(
                 children: [
                   CityInformation(cityName: "Ankara"),
