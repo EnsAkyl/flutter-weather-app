@@ -18,6 +18,7 @@ class CurrentCity {
   final String? location;
   final String? explain;
   final String? famous_dish;
+  final String? image_path;
 
   CurrentCity({
     this.city,
@@ -31,7 +32,8 @@ class CurrentCity {
     this.populationProper,
     this.location,
     this.explain,
-    this.famous_dish
+    this.famous_dish,
+    this.image_path,
   });
 
   factory CurrentCity.fromJson(Map<String, dynamic> json) => CurrentCity(
@@ -46,7 +48,8 @@ class CurrentCity {
     populationProper: json["population_proper"],
     location: json["location"],
     explain: json["explain"],
-    famous_dish: json["famous_dish"]
+    famous_dish: json["famous_dish"],
+    image_path: json["image_path"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -61,6 +64,7 @@ class CurrentCity {
     "population_proper": populationProper,
     "location": location,
     "explain": explain,
-    "famous_dish": famous_dish
+    "famous_dish": famous_dish,
+    "image_path": image_path,
   };
 }

@@ -1,5 +1,6 @@
 [
   {
+    "image_path": "assets/images/city_information/istanbul_ili_haritasi.png",
     "city": "İstanbul",
     "lat": "41.0136",
     "lng": "28.9550",
@@ -14,6 +15,7 @@
     "famous_dish":"İstanbul’un meşhur yemekleri çok çeşitlidir ama özellikle balık-ekmek, islak hamburger, midye dolma ve boza öne çıkar."
   },
   {
+    "image_path":"assets/images/city_information/ankara-ili-haritasi.png",
     "city": "Ankara",
     "lat": "39.9300",
     "lng": "32.8500",
@@ -29,6 +31,7 @@
 
   },
   {
+    "image_path":"assets/images/city_information/bursa-ili-haritasi.png",
     "city": "Bursa",
     "lat": "40.1833",
     "lng": "29.0500",
@@ -43,6 +46,7 @@
     "famous_dish":"İskender kebabı Bursa’ya özgüdür. Ayrıca kestane şekeri ve cantık da meşhur lezzetlerindendir."
   },
   {
+    "image_path": "assets/images/city_information/mersin-ili-haritasi.png",
     "city": "Mersin",
     "lat": "36.8000",
     "lng": "34.6333",
@@ -57,6 +61,7 @@
     "famous_dish":"Tantuni Mersin’in simgesi haline gelmiş bir yemektir. İnce doğranmış etin lavaş ekmeğiyle sunulduğu nefis bir sokak yemeğidir. Ayrıca cezerye (havuç tatlısı) da oldukça meşhurdur."
   },
   {
+    "image_path": "assets/images/city_information/erzurum_ili_haritasi.png",
     "city": "Erzurum",
     "lat": "39.9086",
     "lng": "41.2769",
@@ -71,6 +76,7 @@
     "famous_dish":"Cağ kebabı, Erzurum’a özgü yatay şişte servis edilen bir kebap çeşididir. Ayrıca kadayıf dolması da yöresel tatlılarındandır."
   },
   {
+    "image_path": "assets/images/city_information/trabzon-ili-haritasi.png",
     "city": "Trabzon",
     "lat": "41.0050",
     "lng": "39.7225",
@@ -85,6 +91,7 @@
     "famous_dish":"Kuymak (mıhlama), mısır unu, tereyağı ve Trabzon peyniriyle yapılan bir kahvaltılık. Ayrıca hamsili pilav ve karalahana sarması da çok tüketilir."
   },
   {
+    "image_path": "assets/images/city_information/gaziantep_ili_haritasi.png",
     "city": "Gaziantep",
     "lat": "37.0628",
     "lng": "37.3792",
@@ -99,6 +106,7 @@
     "famous_dish":"Baklava dendiğinde akla Gaziantep gelir. Ayrıca katmer, lahmacun, kebap çeşitleri, Ali Nazik ve yuvalama gibi yöresel yemekleri dünya çapında tanınır."
   },
   {
+    "image_path": "assets/images/city_information/mugla_ili_haritasi.png",
     "city": "Muğla",
     "lat": "37.2167",
     "lng": "28.3667",

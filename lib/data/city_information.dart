@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
+import 'package:weather_app/utils/utils.dart';
 import 'package:weather_app/widgets/display_color_text.dart';
 import 'models/city_information_model.dart';
 
@@ -48,6 +49,13 @@ class CityInformation extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Gap(10),
+                Container(
+                  height: context.deviceSize.height * 0.36,
+                  width: context.deviceSize.width ,
+                  child: Image.asset("${city.image_path}", fit: BoxFit.contain),
+                ),
+                const Gap(20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
