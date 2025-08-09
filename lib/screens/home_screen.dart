@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/data/city_information.dart';
+import 'package:weather_app/screens/city_information.dart';
 import 'package:weather_app/data/data.dart';
 import 'package:weather_app/providers/providers.dart';
 import 'package:weather_app/utils/utils.dart';
 import 'package:weather_app/widgets/widgets.dart';
+
+import '../config/routes/route_location.dart';
 
 class HomeScreen extends ConsumerWidget {
   static HomeScreen builder(BuildContext context, GoRouterState state) =>
@@ -19,10 +21,14 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
-    final textTheme = context.textTheme;
     final headerList = CardHeaderData.headerList;
+
+    final selectedTab = ref.watch(SelectedTabbarProvider);
+    final selectedCard = ref.watch(SelectedCardProvider);
+
     return DefaultTabController(
       length: TabItemList.tabList.length,
+      initialIndex: selectedTab,
       child: Scaffold(
         appBar: AppBar(
           title: DisplayColorText(
@@ -47,9 +53,6 @@ class HomeScreen extends ConsumerWidget {
                 onTap: (index) {
                   ref.read(SelectedCardProvider.notifier).state = null;
                   ref.read(SelectedTabbarProvider.notifier).state = index;
-                  debugPrint(
-                    "Seçilen TabBar Item : ${TabItemList.tabList[index].title}",
-                  );
                 },
                 tabAlignment: TabAlignment.center,
                 indicatorSize: TabBarIndicatorSize.tab,
@@ -86,6 +89,15 @@ class HomeScreen extends ConsumerWidget {
                       return GestureDetector(
                         onTap: () {
                           ref.read(SelectedCardProvider.notifier).state = index;
+
+                          final cityName = TabItemList.tabList[selectedTab];
+
+                          switch(index){
+                            case 0:
+                            context.push(RouteLocation.weather);
+                            break;
+                          }
+
                         },
                         child: Card(
                           color:

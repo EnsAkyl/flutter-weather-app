@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:weather_app/utils/utils.dart';
 import 'package:weather_app/widgets/display_color_text.dart';
-import 'models/city_information_model.dart';
+import '../data/models/city_information_model.dart';
 
 class CityInformation extends StatelessWidget {
   const CityInformation({super.key, required this.cityName});
