@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 import 'package:weather_app/providers/get_city_provider.dart';
 import 'package:weather_app/utils/utils.dart';
 import 'package:weather_app/widgets/display_color_text.dart';
-import '../data/models/city_information_model.dart';
 
 class CityInformation extends ConsumerWidget {
   const CityInformation({super.key, required this.cityName});
