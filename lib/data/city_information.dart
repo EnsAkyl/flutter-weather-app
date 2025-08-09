@@ -33,68 +33,71 @@ class CityInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<CurrentCity?>(
-      future: _getCityByName(cityName),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text("Bir Hata Oluştu : ${snapshot.error}"));
-        } else if (!snapshot.hasData || snapshot.hasData == null) {
-          return Center(child: Text("Şehir Bulunamadı"));
-        } else {
-          final city = snapshot.data!;
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Gap(10),
-                Container(
-                  height: context.deviceSize.height * 0.36,
-                  width: context.deviceSize.width ,
-                  child: Image.asset("${city.image_path}", fit: BoxFit.contain),
-                ),
-                const Gap(20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    DisplayColorText(
-                      text: "${city.city}",
-                      textColor: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    const Gap(10),
-                    DisplayColorText(
-                      text: "(Enlem: ${city.lat}, Boylam: ${city.lng})",
-                      textColor: Colors.black,
-                      fontSize: 11,
-                    ),
-                  ],
-                ),
-                const Gap(15),
-                DisplayColorText(
-                  text: "• ${city.location}",
-                  textColor: Colors.black,
-                  fontSize: 12,
-                ),
-                const Gap(5),
-                DisplayColorText(
-                  text: "• ${city.explain}",
-                  textColor: Colors.black,
-                  fontSize: 12,
-                ),
-                const Gap(5),
-                DisplayColorText(
-                  text: "• ${city.famous_dish}",
-                  textColor: Colors.black,
-                  fontSize: 12,
-                ),
-              ],
-            ),
-          );
-        }
-      },
+    return SingleChildScrollView(
+      physics: AlwaysScrollableScrollPhysics(),
+      child: FutureBuilder<CurrentCity?>(
+        future: _getCityByName(cityName),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text("Bir Hata Oluştu : ${snapshot.error}"));
+          } else if (!snapshot.hasData || snapshot.hasData == null) {
+            return Center(child: Text("Şehir Bulunamadı"));
+          } else {
+            final city = snapshot.data!;
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Gap(10),
+                  Container(
+                    height: context.deviceSize.height * 0.37,
+                    width: context.deviceSize.width ,
+                    child: Image.asset("${city.image_path}", fit: BoxFit.fill),
+                  ),
+                  const Gap(20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      DisplayColorText(
+                        text: "${city.city}",
+                        textColor: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      const Gap(10),
+                      DisplayColorText(
+                        text: "(Enlem: ${city.lat}, Boylam: ${city.lng})",
+                        textColor: Colors.black,
+                        fontSize: 11,
+                      ),
+                    ],
+                  ),
+                  const Gap(15),
+                  DisplayColorText(
+                    text: "• ${city.location}",
+                    textColor: Colors.black,
+                    fontSize: 14,
+                  ),
+                  const Gap(5),
+                  DisplayColorText(
+                    text: "• ${city.explain}",
+                    textColor: Colors.black,
+                    fontSize: 14,
+                  ),
+                  const Gap(5),
+                  DisplayColorText(
+                    text: "• ${city.famous_dish}",
+                    textColor: Colors.black,
+                    fontSize: 14,
+                  ),
+                ],
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
