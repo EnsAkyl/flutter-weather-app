@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
@@ -6,6 +8,7 @@ import 'package:weather_app/data/data.dart';
 import 'package:weather_app/providers/providers.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 import 'package:weather_app/utils/extensions.dart';
+import 'package:weather_app/utils/wind_direction.dart';
 import 'package:weather_app/widgets/display_color_text.dart';
 
 class WeatherScreen extends ConsumerWidget {
@@ -60,11 +63,18 @@ class WeatherScreen extends ConsumerWidget {
                 const Gap(10),
                 Text("Nem: %${weather.main?.humidity ?? "---"}"),
                 const Gap(10),
-                Text("Rüzhar Hızı: ${weather.wind?.speed ?? "---"} km/h")
-
-
-
-
+                Text("Rüzhar Hızı: ${weather.wind?.speed ?? "---"} km/h"),
+                const Gap(10),
+                Row(
+                  children: [
+                    Transform.rotate(
+                      angle: (weather.wind?.deg ?? 0) * math.pi / 180,
+                      child: Icon(Icons.navigation, color: Colors.blue),
+                    ),
+                    SizedBox(width: 8),
+                    Text(WindDirection.fromDegree(weather.wind?.deg)),
+                  ],
+                )
               ],
             ),
           );
