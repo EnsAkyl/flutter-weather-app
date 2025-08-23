@@ -90,9 +90,7 @@ class HomeScreen extends ConsumerWidget {
                       return GestureDetector(
                         onTap: () {
                           ref.read(SelectedCardProvider.notifier).state = index;
-
                           final cityName = TabItemList.tabList[selectedTab];
-
                           switch(index){
                             case 0:
                             context.push(RouteLocation.weather);

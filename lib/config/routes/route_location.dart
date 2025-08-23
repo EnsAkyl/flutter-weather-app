@@ -8,4 +8,6 @@ class RouteLocation {
 
   static String get weather => '/weather';
 
+  static String get location => '/location';
+
 }
