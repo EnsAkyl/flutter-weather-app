@@ -147,31 +147,26 @@ class WeatherScreen extends ConsumerWidget {
                               fontSize: 15,
                             ),
                             const Gap(15),
-                            Row(
+                            Column(
                               mainAxisAlignment: MainAxisAlignment.center,
+
                               children: [
-                                Expanded(
-                                  flex:2,
-                                  child: DisplayColorText(
-                                    text: WindDirection.fromDegree(
-                                      weather.wind?.deg,
-                                    ),
-                                    textColor: color.shadow,
-                                    fontSize: 15,
+                                DisplayColorText(
+                                  text: WindDirection.fromDegree(
+                                    weather.wind?.deg,
                                   ),
+                                  textColor: color.shadow,
+                                  fontSize: 15,
                                 ),
                                 const Gap(5),
-                                Expanded(
-
-                                  child: Transform.rotate(
-                                    angle:
-                                        (weather.wind?.deg ?? 0) *
-                                        math.pi /
-                                        180,
-                                    child: Icon(
-                                      Icons.navigation,
-                                      color: Colors.green,
-                                    ),
+                                Transform.rotate(
+                                  angle:
+                                      (weather.wind?.deg ?? 0) *
+                                      math.pi /
+                                      180,
+                                  child: Icon(
+                                    Icons.navigation,
+                                    color: Colors.green,
                                   ),
                                 ),
                               ],

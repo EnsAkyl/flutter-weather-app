@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/screens/city_information.dart';
 import 'package:weather_app/data/data.dart';
@@ -119,7 +120,9 @@ class HomeScreen extends ConsumerWidget {
                                       headerList[index].iconPath,
                                     ),
                                   ),
+                                  Gap(3),
                                   Expanded(
+                                    flex: 2,
                                     child: DisplayColorText(
                                       text: headerList[index].title,
                                       fontSize: 13,
