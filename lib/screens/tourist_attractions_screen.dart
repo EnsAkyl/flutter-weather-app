@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/data/tab_item.dart';
 import 'package:weather_app/providers/providers.dart';
@@ -65,15 +66,35 @@ class TouristAttractionsScreen extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   final item = touristData.features![index];
                   final name = item.properties?.name;
-                  
-                  if(name ==null || name.isEmpty){
+
+                  if (name == null || name.isEmpty) {
                     return const SizedBox.shrink();
                   }
-                  return ExpansionTile(
-                    title: Text(name),
-                    children: [
-                      ListTile(title: Text("Adres: ${item.properties?.formatted ?? "Adres Girilmemiş"}"),),
-                  ],
+                  return Card(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    child: ExpansionTile(
+                      backgroundColor: color.primary,
+                      title: Row(
+                        children: [
+                          Icon(Icons.place, color: color.secondary, size: 27),
+                          const Gap(9),
+                          Text(
+                            name,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      children: [
+                        ListTile(
+                          title: Text(
+                            "Adres: ${item.properties?.formatted ?? "Adres Girilmemiş"}",
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 },
               );
