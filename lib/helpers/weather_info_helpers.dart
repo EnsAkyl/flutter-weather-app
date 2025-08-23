@@ -1,15 +1,16 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future getWeatherInformation(String cityName) async {
   try {
-    const apiKey = String.fromEnvironment('API_KEY_WEATHER');
+    final String? _weatherAPI = dotenv.env['WEATHER_API_KEY'];
     final dio = Dio();
     var url =
         "https://api.openweathermap.org/data/2.5/weather"
         "?q=$cityName"
         "&lang=tr"
         "&units=metric"
-        "&appid=a5e198a15f7690402bcc44b9336d32c9";
+        "&appid=$_weatherAPI";
 
     var response = await dio.get(url);
 

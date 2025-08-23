@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^2.2.0
   dio: ^5.8.0+1
   gap: ^3.0.1
+  flutter_dotenv: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,7 @@ flutter:
     - assets/images/home_screen/
     - assets/images/city_information/
     - assets/data/city_information/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

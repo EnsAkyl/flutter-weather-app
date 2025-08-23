@@ -162,7 +162,7 @@ class WeatherScreen extends ConsumerWidget {
                                 ),
                                 const Gap(5),
                                 Expanded(
-                                  flex: 1,
+
                                   child: Transform.rotate(
                                     angle:
                                         (weather.wind?.deg ?? 0) *
