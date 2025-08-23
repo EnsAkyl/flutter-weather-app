@@ -7,7 +7,7 @@ Future getTouristAttractions(double lon,double lat) async {
     final dio = Dio();
     var url = "https://api.geoapify.com/v2/places"
         "?categories=tourism.sights"
-        "&filter=circle:${lon},${lat},40000"
+        "&filter=circle:39.7225,41.0050,20000"
         "&limit=500"
         "&apiKey=$_touristAttractionsAPI";
 
@@ -20,5 +20,6 @@ Future getTouristAttractions(double lon,double lat) async {
     }
   }catch(e){
     throw Exception("Veri Çekme Hatası : $e");
+
   }
 }

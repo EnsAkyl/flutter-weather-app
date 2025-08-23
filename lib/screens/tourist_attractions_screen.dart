@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:weather_app/data/tab_item.dart';
 import 'package:weather_app/providers/providers.dart';
 import 'package:weather_app/utils/extensions.dart';
+import 'package:weather_app/widgets/display_color_text.dart';
 
 class TouristAttractionsScreen extends ConsumerWidget {
   static TouristAttractionsScreen builder(
@@ -23,7 +24,11 @@ class TouristAttractionsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Turistlik Mekanlar"),
+        title: DisplayColorText(
+          text: "Turistlik Mekanlar",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
         centerTitle: true,
         iconTheme: IconThemeData(color: color.surface),
       ),
@@ -42,7 +47,6 @@ class TouristAttractionsScreen extends ConsumerWidget {
             );
           }
           final touristAsync = ref.watch(touristAttraction(city));
-
           return touristAsync.when(
             error:
                 (err, stack) => Center(
@@ -56,7 +60,23 @@ class TouristAttractionsScreen extends ConsumerWidget {
               if (touristData == null) {
                 return const Center(child: Text("Veri Alınamadı!"));
               }
-              return Center();
+              return ListView.builder(
+                itemCount: touristData.features?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final item = touristData.features![index];
+                  final name = item.properties?.name;
+                  
+                  if(name ==null || name.isEmpty){
+                    return const SizedBox.shrink();
+                  }
+                  return ExpansionTile(
+                    title: Text(name),
+                    children: [
+                      ListTile(title: Text("Adres: ${item.properties?.formatted ?? "Adres Girilmemiş"}"),),
+                  ],
+                  );
+                },
+              );
             },
           );
         },

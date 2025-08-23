@@ -95,8 +95,10 @@ class HomeScreen extends ConsumerWidget {
                             case 0:
                             context.push(RouteLocation.weather);
                             break;
+                            case 1:
+                              context.push(RouteLocation.location);
+                              break;
                           }
-
                         },
                         child: Card(
                           color:
