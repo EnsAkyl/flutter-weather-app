@@ -18,7 +18,6 @@ class TouristAttractionsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final color = context.colorScheme;
-    final deviceSize = context.deviceSize;
     final selectedIndex = ref.watch(SelectedTabbarProvider);
     final currentCity = TabItemList.tabList[selectedIndex].title;
     final cityAsync = ref.watch(cityByNameProvider(currentCity));
@@ -47,7 +46,9 @@ class TouristAttractionsScreen extends ConsumerWidget {
               child: const Center(child: Text("Şehir Bulunamadı.")),
             );
           }
-          final touristAsync = ref.watch(touristAttraction(city));
+          final lon = double.tryParse(city.lng ?? '') ?? 0.0;
+          final lat = double.tryParse(city.lat ?? '') ?? 0.0;
+          final touristAsync = ref.watch(touristAttraction((lon,lat)));
           return touristAsync.when(
             error:
                 (err, stack) => Center(
@@ -79,7 +80,7 @@ class TouristAttractionsScreen extends ConsumerWidget {
                       backgroundColor: color.primary,
                       title: Row(
                         children: [
-                          Icon(Icons.place, color: color.secondary, size: 27),
+                          Icon(Icons.place, color: color.secondary, size: 24),
                           const Gap(9),
                           Text(
                             name,
