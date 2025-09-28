@@ -7,7 +7,7 @@ Future getTouristAttractions(double lon,double lat) async {
     final dio = Dio();
     var url = "https://api.geoapify.com/v2/places"
         "?categories=tourism.sights"
-        "&filter=circle:$lon,$lat,20000"
+        "&filter=circle:$lon,$lat,45000"
         "&limit=500"
         "&apiKey=$_touristAttractionsAPI";
 

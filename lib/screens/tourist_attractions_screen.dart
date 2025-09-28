@@ -80,18 +80,21 @@ class TouristAttractionsScreen extends ConsumerWidget {
                       backgroundColor: color.primary,
                       title: Row(
                         children: [
-                          Icon(Icons.place, color: color.secondary, size: 24),
+                          Expanded(child: Icon(Icons.place, color: color.secondary, size: 24)),
                           const Gap(9),
-                          Text(
-                            name,
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          Expanded(
+                            flex: 5,
+                            child: Text(
+                              name,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),
                       children: [
                         ListTile(
                           title: Text(
-                            "Adres: ${item.properties?.formatted ?? "Adres Girilmemiş"}",
+                            item.properties?.formatted ?? "Adres Girilmemiş",
                           ),
                         ),
                       ],

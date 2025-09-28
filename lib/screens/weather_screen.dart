@@ -85,15 +85,21 @@ class WeatherScreen extends ConsumerWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.network(
-                            "https://openweathermap.org/img/wn/${weather.weather![0].icon}@2x.png",
-                            height: 55,
+                          Expanded(
+                            flex: 1,
+                            child: Image.network(
+                              "https://openweathermap.org/img/wn/${weather.weather![0].icon}@2x.png",
+                              height: 55,
+                            ),
                           ),
-                          DisplayColorText(
-                            text:
-                                "Hava ${weather.weather![0].description ?? "---"}",
-                            textColor: context.colorScheme.shadow,
-                            fontSize: 25,
+                          Expanded(
+                            flex: 2,
+                            child: DisplayColorText(
+                              text:
+                                  "Hava ${weather.weather![0].description ?? "---"}",
+                              textColor: context.colorScheme.shadow,
+                              fontSize: 25,
+                            ),
                           ),
                         ],
                       ),

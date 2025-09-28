@@ -77,10 +77,10 @@ class HomeScreen extends ConsumerWidget {
               child: GridView.builder(
                 padding: EdgeInsets.all(1),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                  crossAxisCount: 2,
                   crossAxisSpacing: 0.3,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 5 / 3,
+                  childAspectRatio: 2.6,
                 ),
                 itemBuilder: (context, index) {
                   return Consumer(
@@ -125,7 +125,7 @@ class HomeScreen extends ConsumerWidget {
                                     flex: 2,
                                     child: DisplayColorText(
                                       text: headerList[index].title,
-                                      fontSize: 13,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                       textAlign: TextAlign.center,
                                     ),

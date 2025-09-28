@@ -12,10 +12,6 @@ class CardHeaderData {
     CardHeaderData(
       title: "Turistik Mekanlar",
       iconPath: "assets/images/home_screen/location_image.svg",
-    ),
-    CardHeaderData(
-      title: "Bilinen Lezzetleri",
-      iconPath: "assets/images/home_screen/food_image.svg",
-    ),
+    )
   ];
 }
